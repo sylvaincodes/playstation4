@@ -1,0 +1,358 @@
+@import url('./reset.css');
+@import url('./variables.css');
+@import url('./animations.css');
+
+html{
+    font-size:20px;
+    font-family: var(--ff-mali), Arial, Helvetica, sans-serif;
+    width:100%;
+    height:100vh;
+}
+
+body{
+    width:100%;
+    height:100%;
+}
+
+/*PAge 1 : démarrage*/
+.logo{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.logo img{
+    width:100px;
+    height:100px;
+   color: white;
+   animation: moveFromTopAndShake 1s ease-in-out;
+}
+
+/*PAge 1 : démarrage*/
+
+
+
+
+
+/*PAge 2 : alert epilepsie*/
+.alert-epilepsie{
+    width:100%;
+    height:100%;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    padding: 5px 70px;
+    line-height: 1.5;
+    animation: moveFromTopAndShake 1s ease-in-out;
+    display:none;
+
+}
+
+.alert-epilepsie p{
+    font-size: var(--fs-8);
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: var(--fw-600);
+}
+
+
+
+/*PAge 3 : menu entete*/
+.home .home-header{
+    display: none;
+    visibility: hidden;
+    height: 2%
+}
+
+.home.collapse{
+    background: url('../img/bg.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.home .home-header.active{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    
+    z-index: 5;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: visible;
+}
+
+.home .home-header.active .notifications{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .home-header.active .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fs-5);
+}
+
+
+
+
+
+
+/*PAge 4 : menu principale*/
+
+.list-notif{
+    transition: 4s ease;
+    padding: 10px 10px;
+}
+
+.list-notif ion-icon {
+        font-size: var(--fs-7);
+        cursor: pointer;
+}
+
+.alert-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.alert-btn ion-icon{
+    color: var(--white);
+}
+
+.alert-btn span{
+    color: var(--white);
+    font-weight: var(--fw-700);
+    font-size: var(--fs-8);
+    animation: right_to_left_move 7s linear  infinite;
+}
+
+.profil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+}
+
+.list-notif ion-icon:first-child , .profil ion-icon{
+    color: var(--yellow);
+}
+
+.home{
+    height: 100%;
+    overflow: auto hidden;
+    background: url('../img/bg3.png');
+    background-position: center;
+    background-size: cover;
+    z-index: 4;
+    color: var(--white);
+    display: none;
+
+}
+
+
+.home .home-content{
+    height: 100%;
+    display: none;
+    animation: Scale 1s ease-in-out;
+
+}
+
+.home .list-notif{
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    z-index: 2;
+}
+
+.home .details{
+    display: flex;
+    flex-direction: row;
+/*    overflow: auto hidden;
+*/    width: 100%;
+    height: 40%;
+    margin: 20px;
+
+}
+.home .details .item{
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.home .details .item:is(:focus,:hover) .home .details{
+}
+
+.home .details .item:is(:focus,:hover) img {
+    height: 200px;
+    width: 200px;
+/*  animation: moveFromTop 300ms ease-in;
+*/
+    border: 3px solid var(--white);
+}
+
+.home .details .item:is(:focus,:hover) > ion-icon {
+    height: 200px;
+    width: 200px;
+
+}
+
+.home .details .item:is(:focus,:hover) .sub-item{
+    visibility: visible;
+    font-size: var(--fs-12);
+    text-transform: capitalize;
+    padding: 10px;
+}
+
+.home .details .item img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+    transition: 300ms ease-in-out;
+}
+
+.home .details .item .sub-item{
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    font-size: var(--fs-12);
+    position: relative;
+}
+
+.home .details .item .sub-item ion-icon{
+    position: absolute;
+    right: 10px;
+}
+
+.home .details .item .sub-item ion-icon:hover{
+        transform: scale(1.5);
+}
+
+.home .details .sub-item-right{
+    display: none;
+    opacity: 1;
+}
+
+.home .details .item:is(:focus,:hover) .details{
+    transform: translateX(110px);
+}
+
+.home .details .item:is(:focus,:hover) .sub-item-right{
+    position: absolute;
+    background: var(--black);
+    opacity: 0.9;
+    top: 201px;
+    right: -455px;
+    width: 467px;
+    padding-left: 10px;
+    text-transform: capitalize;
+    display: block;
+    animation: moveFromBottom 400ms ease-out;
+}
+
+.home .notif-game{
+    height: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.home .notif-game ion-icon{
+    font-size: var(--fs-5);
+    padding-right: 10px;
+}
+
+.home .notif-game p{
+    font-size: var(--fs-10);
+}
+
+
+.home .footer{
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background: var(--black-2);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 10px;
+
+}
+
+
+.home .footer div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.home .footer .btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+.home .footer .btn button{
+    margin-right: 10px;
+    background: var(--black);
+    border: 2px solid ;
+    padding: 0 10px;
+    font-size: var(--fs-12);
+}
+
+.home .footer .btn ion-icon {
+
+margin-right: 10px;}
+
+button,span{        
+    color: var(--white);
+    font-size: var(--fs-11);
+}
+
+.profil-icon{
+    color: var(--yellow);
+        font-size: var(--fs-8) !important;
+}
+
+.bibli{
+    font-size: 120px;
+    background: var(--dimgray);
+}
+
+.psp{
+    font-size: 70px !important;
+}
+
+.footer .options{
+    margin-left: 110px;
+}
